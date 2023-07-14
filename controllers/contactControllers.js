@@ -18,10 +18,6 @@ const getContact = async (req, res, next) => {
   try {
     const { contactId } = req.params;
 
-    // 1
-    // const contact = await Contact.findOne({ _id: contactId });
-
-    // 2
     const contact = await Contact.findById(contactId);
 
     if (!contact) {
