@@ -8,18 +8,18 @@ const userSchema = new Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: true,
     },
     email: {
       type: String,
       mutch: emailRegexp,
       unique: true,
-      require: true,
+      required: true,
     },
-    paswword: {
+    password: {
       type: String,
       minlength: 6,
-      require: true,
+      required: true,
     },
   },
   { versionKey: false, timestamps: true }
