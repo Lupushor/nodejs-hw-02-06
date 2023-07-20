@@ -1,23 +1,27 @@
 const express = require("express");
 
-const authController = require("../../controllers/authController");
+const ctrl = require("../../controllers/authController");
+
+// const authController = require("../../controllers/authController");
 
 const schemas = require("../../schemas/users");
+
+const { authenticate } = require("../../middlewares");
 
 const validateBody = require("../../decorators/validateBody");
 
 const router = express.Router();
 
 router.post(
-  "/singup",
+  "/register",
   validateBody(schemas.userRegisterSchema),
-  authController.singup
+  ctrl.register
 );
 
-router.post(
-  "/singin",
-  validateBody(schemas.userLoginSchema),
-  authController.singin
-);
+router.post("/login", validateBody(schemas.userLoginSchema), ctrl.login);
+
+router.post("/logout", authenticate, ctrl.logout);
+
+router.get("/current", authenticate, ctrl.getCurrent);
 
 module.exports = router;

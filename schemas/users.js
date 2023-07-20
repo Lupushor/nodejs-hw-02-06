@@ -13,7 +13,9 @@ const userLoginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
-module.exports = {
+const schemas = {
   userRegisterSchema,
   userLoginSchema,
 };
+
+module.exports = schemas;
