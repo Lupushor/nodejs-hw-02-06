@@ -2,8 +2,6 @@ const express = require("express");
 
 const ctrl = require("../../controllers/authController");
 
-// const authController = require("../../controllers/authController");
-
 const schemas = require("../../schemas/users");
 
 const { authenticate } = require("../../middlewares");

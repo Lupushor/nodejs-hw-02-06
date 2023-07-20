@@ -4,11 +4,6 @@ const HttpError = require("../utils/HttpError");
 
 const { ctrlWrapper } = require("../decorators");
 
-// const {
-//   addSchema,
-//   contactUpdateFavoriteSchema,
-// } = require("../schemas/contactSchema");
-
 const getAllContacts = async (req, res) => {
   const { _id: owner } = req.user;
 

@@ -2,24 +2,6 @@ const { Schema, model } = require("mongoose");
 
 const handleMongooseError = require("../utils/handleMongooseError");
 
-// const userSchema = new Schema(
-//   {
-//     name: {
-//       type: String,
-//       required: true,
-//     },
-//     email: {
-//       type: String,
-//       unique: true,
-//       required: [true, "Email is required"],
-//     },
-//     password: {
-//       type: String,
-//       required: [true, "Set password for user"],
-//     },
-//   },
-//   { versionKey: false, timestamps: true }
-// );
 const userSchema = new Schema(
   {
     email: {

@@ -10,7 +10,7 @@ const { schemas } = require("../../schemas/contacts");
 
 const router = express.Router();
 
-// router.use(authenticate);
+router.use(authenticate);
 
 router
   .route("/")
