@@ -1,6 +1,13 @@
 const express = require("express");
 
-const ctrl = require("../../controllers/contactControllers");
+const {
+  getAllContacts,
+  getContact,
+  deleteContact,
+  addNewContact,
+  updatedContact,
+  updateFavorite,
+} = require("../../controllers/contactControllers");
 
 const { isValidId, authenticate } = require("../../middlewares");
 
@@ -14,17 +21,17 @@ router.use(authenticate);
 
 router
   .route("/")
-  .get(authenticate, ctrl.getAllContacts)
-  .post(authenticate, validateBody(schemas.addSchema), ctrl.addNewContact);
+  .get(authenticate, getAllContacts)
+  .post(authenticate, validateBody(schemas.addSchema), addNewContact);
 router
   .route("/:contactId")
-  .get(authenticate, isValidId, ctrl.getContact)
-  .delete(authenticate, isValidId, ctrl.deleteContact)
+  .get(authenticate, isValidId, getContact)
+  .delete(authenticate, isValidId, deleteContact)
   .put(
     authenticate,
     isValidId,
     validateBody(schemas.addSchema),
-    ctrl.updatedContact
+    updatedContact
   );
 router
   .route("/:contactId/favorite")
@@ -32,7 +39,7 @@ router
     authenticate,
     isValidId,
     validateBody(schemas.contactUpdateFavoriteSchema),
-    ctrl.updateFavorite
+    updateFavorite
   );
 
 module.exports = router;
