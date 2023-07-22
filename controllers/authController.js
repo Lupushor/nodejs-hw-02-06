@@ -75,7 +75,7 @@ const repeatEmailVerification = async (req, res) => {
   }
 
   if (user.verify) {
-    throw new HttpError(401, "Verification has already been passed");
+    throw new HttpError(400, "Verification has already been passed");
   }
 
   const verifyEmail = {
