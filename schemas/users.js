@@ -18,4 +18,4 @@ const schemas = {
   userLoginSchema,
 };
 
-module.exports = schemas;
+module.exports = { schemas };
